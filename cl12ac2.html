@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Enter a number and click ok</p>
+    <input type="number" id="id" min="1000" max="9999" required>
+    <button  onclick="f1()">OK</button>
+    <p id="result"></p>
+    <script>
+        function f1(){
+            let y = document.getElementById("id");
+            if(!y.checkValidity()){
+                document.getElementById("result").innerHTML = y.validationMessage;
+            }
+            else{
+                document.getElementById("result").innerHTML = "Input is okay"
+            }
+        }
+    </script>
+</body>
+
+</html>
