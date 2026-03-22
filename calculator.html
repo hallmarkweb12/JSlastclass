@@ -19,7 +19,7 @@
         #calculator {
             background: black;
             border-radius: 10px;
-            padding: 20px;
+            padding: 25px;
             width: auto;
             height: fit-content;
             box-shadow: 0px 5px 15px #00f;
@@ -27,27 +27,30 @@
 
         #display {
             height: 50px;
-            width: 100%;
             margin-bottom: 10px;
             border-radius: 8px;
-            font-size: 20px;
+            font-size: 25px;
             text-align: right;
+            padding-right: 7px;
+            border: none;
+            width: 100%;
         }
 
         #buttons {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 75px);
             gap: 10px;
         }
 
         .btn {
             background-color: #333;
             color: white;
-            font-size: 25px;
-            height: 60px;
-            border-radius: 10px;
+            font-size: 30px;
+            height: 65px;
+            border-radius: 17px;
             width: 100%;
-            padding: 10px 17px;
+            padding: 5px 15px;
+            border: none;
         }
 
         .btn:hover {
@@ -55,8 +58,11 @@
             cursor: pointer;
         }
 
+        .btn:active{
+            transform: scale(0.95);
+        }
         .zero {
-            grid-column: span 2;
+            grid-column: span;
         }
     </style>
 </head>
@@ -65,10 +71,10 @@
     <div id="calculator">
         <input type="text" id="display" placeholder="0" readonly>
         <div id="buttons">
-            <button class="btn">C</button>
-            <button class="btn">⌫</button>
             <button class="btn">%</button>
-            <button class="btn">/</button>
+            <button class="btn">C</button>
+            <button class="btn">CE</button>
+            <button class="btn">⌫</button>
 
             <button class="btn">7</button>
             <button class="btn">8</button>
@@ -86,6 +92,7 @@
             <button class="btn">+</button>
 
             <button class="btn zero">0</button>
+            <button class="btn">/</button>
             <button class="btn">.</button>
             <button class="btn">=</button>
         </div>
@@ -97,19 +104,18 @@
         buttons.forEach(button => {
             button.addEventListener("click", () => {
                 let value = button.textContent;
-                if (value === "C") {
+                if (value === "C"||value==="CE") {
                     display.value = ""
                 }
                 else if(value==="⌫"){
                     display.value = display.value.slice(0,-1)
                 }
-
                 else if(value==="="){
                     try{
                         display.value = eval(display.value);
                     }
                     catch{
-                        display.value = "Error Imran is a goat";
+                        display.value =  "Ronaldo is an Error 😎";
                     }
                 }
                 else{
